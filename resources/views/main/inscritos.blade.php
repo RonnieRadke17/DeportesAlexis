@@ -1,14 +1,14 @@
-<!-- resources/views/main/index.blade.php -->
+<!-- resources/views/eventos/inscritos.blade.php -->
 
 @extends('layouts.app')
 
 @section('content')
     <div class="container">
-        <h1 class="mb-4">Todos los Eventos</h1>
+        <h1 class="mb-4">Eventos Inscritos</h1>
 
-        @if ($eventos->count() > 0)
+        @if ($eventosInscritos->count() > 0)
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                @foreach ($eventos as $evento)
+                @foreach ($eventosInscritos as $evento)
                     <div class="col">
                         <div class="card">
                             @if ($evento->imagen)
@@ -26,20 +26,14 @@
                                     <strong>Tipo:</strong> {{ $evento->Tipo }}<br>
                                     <strong>Lugar:</strong> {{ $evento->Lugar }}
                                 </p>
-                                <!-- Agrega el botón para guardar el evento -->
-                                @if(Auth::user()->rol == 'Alumno')
-                                <form method="POST" action="{{ route('guardar-evento', ['evento' => $evento->id]) }}">
-                                    @csrf
-                                    <button type="submit" class="btn btn-primary">Guardar Evento</button>
-                                </form>
-                                @endif
+                                <!-- Puedes agregar más detalles según sea necesario -->
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         @else
-            <p>No hay eventos disponibles.</p>
+            <p>No estás inscrito en ningún evento.</p>
         @endif
     </div>
 @endsection

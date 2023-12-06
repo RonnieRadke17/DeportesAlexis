@@ -7,9 +7,18 @@ use App\Http\Controllers\UsuariosController;
 
 // routes/web.php
 use App\Http\Controllers\MainController;
+
+Route::get('/home', [MainController::class, 'index'])->name('home');
+
+
+//guarda el registro del evento en la DB
+Route::post('/guardar-evento/{evento}', [MainController::class, 'guardarEvento'])->name('guardar-evento');
+
+//Muestra todos los eventos
 Route::get('/mostrar-eventos', [MainController::class, 'index'])->name('mostrar.eventos');
 
-
+//Muestra todos los eventos que estás registrado
+Route::get('/eventos-inscritos', [MainController::class, 'eventosInscritos'])->name('eventos-inscritos');
 
 
 Route::get('/usuarios',[UsuariosController::class,'index'])->name('usuarios.index');
@@ -23,23 +32,12 @@ Route::put('/perfil/update/{id}',[PerfilController::class,'update'] )->name('per
 Route::get('/perfil/edit/{id}',[PerfilController::class,'edit'])->name('perfil.edit');
 Route::resource('perfil', PerfilController::class);
 Route::resource('evento', EventoController::class);
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {//aqui debe estar el login
+    return view('auth.login');
 });
 
-Route::resource('empleado',EmpleadoController::class);
+Route::resource('empleado',EmpleadoController::class);//no usar
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

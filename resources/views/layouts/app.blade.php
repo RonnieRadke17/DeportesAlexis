@@ -20,8 +20,8 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    Sports
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -50,15 +50,7 @@
                             @endif
                         @else
 
-                        @if(Auth::user()->rol == 'Administrador')
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('usuarios.index') }}">
-                            Usuarios  
-                            </a>
-                        </li>
-                        @endif
-
-
+                        
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
@@ -68,7 +60,26 @@
                                     <a class="dropdown-item" href="{{ route('perfil.index') }}">
                                         Perfil
                                     </a>
-                                                                        
+                                    @if(Auth::user()->rol == 'Alumno')                                    
+                                    <a class="dropdown-item" href="{{ route('eventos-inscritos') }}">
+                                        Historial
+                                    </a>
+                                    @endif
+
+                                    @if(Auth::user()->rol == 'Administrador')
+                                    
+                                        <a class="dropdown-item" href="{{ route('usuarios.index') }}">
+                                        Usuarios  
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{ route('evento.index') }}">
+                                            Eventos
+                                        </a>
+                                        
+                                    @endif
+
+
+
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
