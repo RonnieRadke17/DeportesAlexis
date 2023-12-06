@@ -2,8 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
+use App\Http\Controllers\PerfilController;
 
+Route::put('/perfil/update/{id}',[PerfilController::class,'update'] )->name('perfil.update');
 
+Route::get('/perfil/edit/{id}',[PerfilController::class,'edit'])->name('perfil.edit');
+Route::resource('perfil', PerfilController::class);
 Route::resource('evento', EventoController::class);
 /*
 |--------------------------------------------------------------------------
