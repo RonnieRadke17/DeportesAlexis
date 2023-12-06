@@ -3,6 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventoController;
 use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\UsuariosController;
+
+Route::get('/usuarios',[UsuariosController::class,'index'])->name('usuarios.index');
+// routes/web.php
+
+Route::get('/usuarios/{user}', [UsuariosController::class, 'show'])->name('usuarios.show');
+
 
 Route::put('/perfil/update/{id}',[PerfilController::class,'update'] )->name('perfil.update');
 
