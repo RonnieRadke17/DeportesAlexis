@@ -42,6 +42,7 @@
                 <td><img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$evento->imagen}}" width="100" alt=""></td>
                 <td>
                     <a href="{{url('/evento/'.$evento->id.'/edit')}}" class="btn btn-warning">Editar</a>
+                    <a href="{{ url('/evento/'.$evento->id) }}" class="btn btn-warning">Mostrar</a>
 
                     <form action="{{url('/evento/'.$evento->id)}}" class="d-inline" method="POST">
                         @csrf

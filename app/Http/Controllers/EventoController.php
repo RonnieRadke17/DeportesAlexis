@@ -102,6 +102,15 @@ class EventoController extends Controller
     return redirect('evento')->with('mensaje', 'Evento Modificado');
 }
 
+/**
+ * Display the specified resource.
+ */
+public function show($id)
+{
+    $evento = Evento::findOrFail($id);
+    return view('evento.show', compact('evento'));
+}
+
 
     /**
      * Remove the specified resource from storage.
