@@ -39,10 +39,10 @@
                 <td>{{$evento->Hora}}</td>
                 <td>{{$evento->Tipo}}</td>
                 <td>{{$evento->Lugar}}</td>
-                <td><img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$evento->imagen}}" width="100" alt=""></td>
+                <td><img class="img-thumbnail img-fluid" src="{{asset('storage').'/'.$evento->imagen}}" height="100px" width="100px" alt=""></td>
                 <td>
                     <a href="{{url('/evento/'.$evento->id.'/edit')}}" class="btn btn-warning">Editar</a>
-                    <a href="{{ url('/evento/'.$evento->id) }}" class="btn btn-warning">Mostrar</a>
+                    <a href="{{ url('/evento/'.$evento->id) }}" class="btn btn-secondary">Mostrar</a>
 
                     <form action="{{url('/evento/'.$evento->id)}}" class="d-inline" method="POST">
                         @csrf

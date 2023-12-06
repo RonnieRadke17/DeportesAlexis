@@ -10,7 +10,7 @@
         <div class="col-md-6 offset-md-3">
             <ul class="list-group">
                 <li class="list-group-item active text-center">
-                    <img src="https://definicion.de/wp-content/uploads/2019/07/perfil-de-usuario.png" alt="Avatar" class="img-fluid rounded-circle mb-3 avatar-img ">
+                
                     <h4 class="text-white">Hola {{ $usuario->name }}</h4>
                 </li>
                 <li class="list-group-item">
