@@ -5,6 +5,13 @@ use App\Http\Controllers\EventoController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\UsuariosController;
 
+// routes/web.php
+use App\Http\Controllers\MainController;
+Route::get('/mostrar-eventos', [MainController::class, 'index'])->name('mostrar.eventos');
+
+
+
+
 Route::get('/usuarios',[UsuariosController::class,'index'])->name('usuarios.index');
 // routes/web.php
 
